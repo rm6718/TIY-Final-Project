@@ -1,0 +1,4 @@
+com/ironyard/controller/rest/PermissionController.class
+com/ironyard/controller/mvc/MvcAdminController.class
+com/ironyard/repos/PermissionRepository.class
+com/ironyard/data/Permission.class

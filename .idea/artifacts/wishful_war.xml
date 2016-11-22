@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="wishful:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="finalproject-1.4.1.RELEASE.war">
+      <element id="artifact" artifact-name="wishful:war exploded" />
+    </root>
+  </artifact>
+</component>
