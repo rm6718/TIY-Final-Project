@@ -63,13 +63,13 @@
                 <li role="presentation"><a href="/mvc/open/logout">Logout</a></li>
             </ul>
         </nav>
-        <h3 class="text-muted">Bucket List</h3>
+        <h3 class="text-muted" style="font-style: italic" >Wishful</h3>
     </div>
 
 
     <div class="row marketing">
         <div class="col-lg-6">
-            <h4>Here's your list of Goals</h4>
+            <h4 align="center">Here's Your Bucket List</h4>
 
             <p/>
 

@@ -5,3 +5,6 @@ INSERT INTO public.goal (id, comments, date_to_be_completed, item) VALUES (-1, '
 
 
 INSERT INTO public.permission (id, description, key) VALUES (-1, 'Admin Users', 'ADMIN_ADD_USER');
+
+
+INSERT INTO public.goal_user_abilities (goal_user_id, abilities_id) VALUES (-1, -1);

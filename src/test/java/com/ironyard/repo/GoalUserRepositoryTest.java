@@ -6,7 +6,9 @@ import com.ironyard.data.Permission;
 import com.ironyard.repos.GoalRepository;
 import com.ironyard.repos.GoalUserRepository;
 import com.ironyard.repos.PermissionRepository;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,17 @@ public class GoalUserRepositoryTest {
 
     @Autowired
     private GoalUserRepository userRepo;
+
+
+
+    // this will ensure each time the test runs, it starts with no users in the DB
+    @Before
+    public void clearAllUsers() throws Exception {
+        Iterable<GoalUser> users = userRepo.findAll();
+        for(GoalUser g: users){
+            userRepo.delete(g.getId());
+        }
+    }
 
 
 
@@ -69,11 +82,18 @@ public class GoalUserRepositoryTest {
     @Test
     public void testFindByUsernameAndPass() throws Exception{
 
-        GoalUser testUser = new GoalUser("reeva1234", "password1234", "Reeva Merchant");
+        GoalUser testUser = new GoalUser("reeva", "reeva", "Reeva Merchant");
         userRepo.save(testUser);
 
-        GoalUser found = userRepo.findByUsernameAndPassword("reeva1234", "password1234");
+        GoalUser found = userRepo.findByUsernameAndPassword("reeva", "reeva");
         Assert.assertNotNull(found);
+
+    }
+
+
+
+    @After
+    public void tearDown() throws Exception {
 
     }
 

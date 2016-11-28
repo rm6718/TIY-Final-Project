@@ -132,7 +132,7 @@
                 <tr>
                     <th>Action</th>
                     <th>Username</th>
-                    <th>DisplayName</th>
+                    <th>Display Name</th>
                 </tr>
                 </thead>
                 <tbody>
