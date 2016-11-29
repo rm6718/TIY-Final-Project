@@ -8,8 +8,8 @@
     <schema id="2" parent="1" name="public">
       <object-id>2200</object-id>
       <visible>1</visible>
-      <introspection-state-number>1862</introspection-state-number>
-      <introspection-timestamp>2016-11-22.11:40:53.132</introspection-timestamp>
+      <introspection-state-number>1935</introspection-state-number>
+      <introspection-timestamp>2016-11-28.14:08:26.420</introspection-timestamp>
     </schema>
     <schema id="3" parent="1" name="pg_catalog">
       <object-id>11</object-id>
@@ -27,8 +27,8 @@
       <object-id>12381</object-id>
     </schema>
     <sequence id="8" parent="2" name="hibernate_sequence">
-      <object-id>25259</object-id>
-      <state-number>1848</state-number>
+      <object-id>25426</object-id>
+      <state-number>1929</state-number>
     </sequence>
     <table id="9" parent="2" name="desserts">
       <object-id>16993</object-id>
@@ -43,16 +43,16 @@
       <state-number>1133</state-number>
     </table>
     <table id="12" parent="2" name="goal">
-      <object-id>25261</object-id>
-      <state-number>1849</state-number>
+      <object-id>25428</object-id>
+      <state-number>1930</state-number>
     </table>
     <table id="13" parent="2" name="goal_user">
-      <object-id>25269</object-id>
-      <state-number>1854</state-number>
+      <object-id>25436</object-id>
+      <state-number>1935</state-number>
     </table>
     <table id="14" parent="2" name="goal_user_abilities">
-      <object-id>25277</object-id>
-      <state-number>1854</state-number>
+      <object-id>25444</object-id>
+      <state-number>1935</state-number>
     </table>
     <table id="15" parent="2" name="iron_user">
       <object-id>17693</object-id>
@@ -71,8 +71,8 @@
       <state-number>1544</state-number>
     </table>
     <table id="19" parent="2" name="permission">
-      <object-id>25282</object-id>
-      <state-number>1853</state-number>
+      <object-id>25449</object-id>
+      <state-number>1934</state-number>
     </table>
     <column id="20" parent="9" name="id">
       <state-number>1128</state-number>
@@ -179,102 +179,101 @@
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
     <column id="40" parent="12" name="id">
-      <state-number>1849</state-number>
+      <state-number>1930</state-number>
       <mandatory>1</mandatory>
       <data-type>bigint|0</data-type>
     </column>
-    <column id="41" parent="12" name="comments">
-      <state-number>1849</state-number>
+    <column id="41" parent="12" name="accomplished">
+      <state-number>1930</state-number>
+      <mandatory>1</mandatory>
+      <data-type>boolean|0</data-type>
+    </column>
+    <column id="42" parent="12" name="comments">
+      <state-number>1930</state-number>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="42" parent="12" name="date_to_be_completed">
-      <state-number>1849</state-number>
+    <column id="43" parent="12" name="date_to_be_completed">
+      <state-number>1930</state-number>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="43" parent="12" name="item">
-      <state-number>1849</state-number>
+    <column id="44" parent="12" name="item">
+      <state-number>1930</state-number>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <index id="44" parent="12" name="goal_pkey">
-      <object-id>25267</object-id>
+    <index id="45" parent="12" name="goal_pkey">
+      <object-id>25434</object-id>
       <columns>id</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="45" parent="12" name="goal_pkey">
-      <object-id>25268</object-id>
+    <key id="46" parent="12" name="goal_pkey">
+      <object-id>25435</object-id>
       <columns>id</columns>
       <underlying-index>goal_pkey</underlying-index>
       <primary>1</primary>
     </key>
-    <column id="46" parent="13" name="id">
-      <state-number>1850</state-number>
+    <column id="47" parent="13" name="id">
+      <state-number>1931</state-number>
       <mandatory>1</mandatory>
       <data-type>bigint|0</data-type>
     </column>
-    <column id="47" parent="13" name="display_name">
-      <state-number>1850</state-number>
+    <column id="48" parent="13" name="display_name">
+      <state-number>1931</state-number>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="48" parent="13" name="password">
-      <state-number>1850</state-number>
+    <column id="49" parent="13" name="password">
+      <state-number>1931</state-number>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="49" parent="13" name="username">
-      <state-number>1850</state-number>
+    <column id="50" parent="13" name="username">
+      <state-number>1931</state-number>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <index id="50" parent="13" name="goal_user_pkey">
-      <object-id>25275</object-id>
+    <index id="51" parent="13" name="goal_user_pkey">
+      <object-id>25442</object-id>
       <columns>id</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="51" parent="13" name="goal_user_pkey">
-      <object-id>25276</object-id>
+    <key id="52" parent="13" name="goal_user_pkey">
+      <object-id>25443</object-id>
       <columns>id</columns>
       <underlying-index>goal_user_pkey</underlying-index>
       <primary>1</primary>
     </key>
-    <column id="52" parent="14" name="goal_user_id">
-      <state-number>1851</state-number>
+    <column id="53" parent="14" name="goal_user_id">
+      <state-number>1932</state-number>
       <mandatory>1</mandatory>
       <data-type>bigint|0</data-type>
     </column>
-    <column id="53" parent="14" name="abilities_id">
-      <state-number>1851</state-number>
+    <column id="54" parent="14" name="abilities_id">
+      <state-number>1932</state-number>
       <mandatory>1</mandatory>
       <data-type>bigint|0</data-type>
     </column>
-    <index id="54" parent="14" name="goal_user_abilities_pkey">
-      <object-id>25280</object-id>
+    <index id="55" parent="14" name="goal_user_abilities_pkey">
+      <object-id>25447</object-id>
       <columns>goal_user_id
 abilities_id</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <index id="55" parent="14" name="goal_user_abilities_abilities_id_uindex">
-      <object-id>25301</object-id>
-      <columns>abilities_id</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
-    </index>
     <key id="56" parent="14" name="goal_user_abilities_pkey">
-      <object-id>25281</object-id>
+      <object-id>25448</object-id>
       <columns>goal_user_id
 abilities_id</columns>
       <underlying-index>goal_user_abilities_pkey</underlying-index>
       <primary>1</primary>
     </key>
     <foreign-key id="57" parent="14" name="fk16b9m8oufi3ugem3ke4dtlo0x">
-      <object-id>25295</object-id>
+      <object-id>25462</object-id>
       <columns>goal_user_id</columns>
       <ref-key>~.goal_user.goal_user_pkey</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
     <foreign-key id="58" parent="14" name="fkt0n3r7st89e07ht2v3rvusmt9">
-      <object-id>25290</object-id>
+      <object-id>25457</object-id>
       <columns>abilities_id</columns>
       <ref-key>~.permission.permission_pkey</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
@@ -439,26 +438,26 @@ favs_id</columns>
       <primary>1</primary>
     </key>
     <column id="88" parent="19" name="id">
-      <state-number>1852</state-number>
+      <state-number>1933</state-number>
       <mandatory>1</mandatory>
       <data-type>bigint|0</data-type>
     </column>
     <column id="89" parent="19" name="description">
-      <state-number>1852</state-number>
+      <state-number>1933</state-number>
       <data-type>varchar(255)|0</data-type>
     </column>
     <column id="90" parent="19" name="key">
-      <state-number>1852</state-number>
+      <state-number>1933</state-number>
       <data-type>varchar(255)|0</data-type>
     </column>
     <index id="91" parent="19" name="permission_pkey">
-      <object-id>25288</object-id>
+      <object-id>25455</object-id>
       <columns>id</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
     <key id="92" parent="19" name="permission_pkey">
-      <object-id>25289</object-id>
+      <object-id>25456</object-id>
       <columns>id</columns>
       <underlying-index>permission_pkey</underlying-index>
       <primary>1</primary>

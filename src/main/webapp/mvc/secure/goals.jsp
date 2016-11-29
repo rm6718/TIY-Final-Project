@@ -47,6 +47,18 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script>
+        function markComplete(id) {
+            window.location = 'http://localhost:8080/mvc/secure/user/accomplished/add?id='+id;
+        }
+    </script>
+
+    <script>
+        function markNotComplete(id) {
+            window.location = 'http://localhost:8080/mvc/secure/user/accomplished/remove?id='+id;
+        }
+    </script>
 </head>
 
 <body>
@@ -67,33 +79,44 @@
     </div>
 
 
+
+
+
+
+<!--margin - left: 370px  -->
+    <div style="display: flex; flex-direction: column; align-content: center; text-align: center;" >
+
     <div class="row marketing">
         <div class="col-lg-6">
             <h4 align="center">Here's Your Bucket List</h4>
 
-            <p/>
 
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Item</th>
-                    <th>Date To Be Completed By</th>
-                    <th>Comments</th>
-                    <th>Edit Goal</th>
-                    <th>Delete Goal</th>
+                    <th align="center">Completed</th>
+                    <th align="center">Goal</th>
+                    <th align="center">Date To Be Completed By</th>
+                    <th align="center">Comments</th>
+                    <th align="center">Edit Goal</th>
+                    <th align="center">Delete Goal</th>
                 </tr>
                 </thead>
                 <tbody>
 
 
-                <c:forEach items="${all_goals}" var="aGoal">
+                <c:forEach items="${notcompleted_goals}" var="aGoal">
 
                     <tr>
-                        <td><c:out value="${aGoal.item}"/></td>
-                        <td><c:out value="${aGoal.dateToBeCompleted}"/></td>
-                        <td><c:out value="${aGoal.comments}"/></td>
-                        <td><a href="/mvc/secure/goals/list/edit?id=<c:out value="${aGoal.id}"/>">Edit</a></td>
-                        <td><a href="/mvc/secure/goals/list/delete?id=<c:out value="${aGoal.id}"/>">Delete</a></td>
+                        <td align="center"><input type="checkbox" id="myCheck" onclick="markComplete(${aGoal.id})"></td>
+                        
+
+                        
+                        <td align="center"><c:out value="${aGoal.item}"/></td>
+                        <td align="center"><c:out value="${aGoal.dateToBeCompleted}"/></td>
+                        <td align="center"><c:out value="${aGoal.comments}"/></td>
+                        <td align="center"><a href="/mvc/secure/goals/list/edit?id=<c:out value="${aGoal.id}"/>">Edit</a></td>
+                        <td align="center"><a href="/mvc/secure/goals/list/delete?id=<c:out value="${aGoal.id}"/>">Delete</a></td>
                     </tr>
 
                 </c:forEach>
@@ -103,7 +126,60 @@
             </table>
 
 
+            </div>
         </div>
+
+
+
+        <div style="margin-top:20px"></div>
+
+
+
+
+        <div class="row marketing">
+            <div class="col-lg-6">
+                <h4 align="center">Your Completed Goals</h4>
+
+                <p/>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th align="center">Not Completed</th>
+                        <th align="center">Goal</th>
+                        <th align="center">Date To Be Completed By</th>
+                        <th align="center">Comments</th>
+                        <th align="center">Edit Goal</th>
+                        <th align="center">Delete Goal</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+                    <c:forEach items="${completed_goals}" var="aGoal">
+
+                        <tr>
+                            <td align="center"><input type="checkbox" id="myCheck2" checked="checked" onclick="markNotComplete(${aGoal.id})"></td>
+                            <td align="center"><c:out value="${aGoal.item}"/></td>
+                            <td align="center"><c:out value="${aGoal.dateToBeCompleted}"/></td>
+                            <td align="center"><c:out value="${aGoal.comments}"/></td>
+                            <td align="center"><a href="/mvc/secure/goals/list/edit?id=<c:out value="${aGoal.id}"/>">Edit</a></td>
+                            <td align="center"><a href="/mvc/secure/goals/list/delete?id=<c:out value="${aGoal.id}"/>">Delete</a></td>
+                        </tr>
+
+                    </c:forEach>
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+
+
+
+    </div>
 
     </div>
 
@@ -111,7 +187,6 @@
         <p>&copy; 2016 Company, Inc.</p>
     </footer>
 
-</div> <!-- /container -->
 
 
 </body>

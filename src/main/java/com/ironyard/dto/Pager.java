@@ -1,5 +1,6 @@
 package com.ironyard.dto;
 
+import com.ironyard.data.Goal;
 import org.springframework.data.domain.Page;
 
 /**

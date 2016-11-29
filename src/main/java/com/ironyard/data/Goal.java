@@ -13,6 +13,7 @@ public class Goal {
     private String item;
     private String dateToBeCompleted;
     private String comments;
+    private boolean accomplished;
 
     public Goal() {
     }
@@ -51,6 +52,14 @@ public class Goal {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public boolean isAccomplished() {
+        return accomplished;
+    }
+
+    public void setAccomplished(boolean accomplished) {
+        this.accomplished = accomplished;
     }
 
     public Goal(String item, String dateToBeCompleted, String comments) {

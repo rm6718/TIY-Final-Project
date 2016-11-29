@@ -60,6 +60,7 @@ public class GoalUser {
         this.abilities = abilities;
     }
 
+
     public GoalUser(String username, String password, String displayName) {
         this.username = username;
         this.password = password;

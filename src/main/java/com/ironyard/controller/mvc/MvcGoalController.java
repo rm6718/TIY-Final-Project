@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Iterator;
 
 /**
  * Created by reevamerchant on 11/7/16.
@@ -48,19 +49,24 @@ public class MvcGoalController {
     public String allMovies(@RequestParam(value = "page", required = false) Integer page,
                             Model model, HttpServletRequest request){
 
-        if (page == null){
-            page = 0;
-        }
+//        if (page == null){
+//            page = 0;
+//        }
 
-        Sort s = new Sort(Sort.Direction.DESC, "item");
-        PageRequest pr = new PageRequest(page, 200, s);
-        Page<Goal> aPageOfGoals = goalRepository.findAll(pr);
+//        Sort s = new Sort(Sort.Direction.DESC, "item");
+//        PageRequest pr = new PageRequest(page, 3, s);
+        Iterable<Goal> aPageOfCompletedGoals = goalRepository.findByAccomplished(true);
 
-        Pager gp = new Pager(page, aPageOfGoals);
+        Iterable<Goal> aPageOfIncompleteGoals = goalRepository.findByAccomplished(false);
+
+       // Pager gp = new Pager(page, aPageOfCompletedGoals);
+
+
 
         // put them in a model
-        model.addAttribute("all_goals", aPageOfGoals.iterator());
-        model.addAttribute("goal_pager", gp);
+        model.addAttribute("completed_goals", aPageOfCompletedGoals.iterator());
+        model.addAttribute("notcompleted_goals", aPageOfIncompleteGoals.iterator());
+        //model.addAttribute("goal_pager", gp);
 
         //sends people to home page
         return "/secure/goals";
