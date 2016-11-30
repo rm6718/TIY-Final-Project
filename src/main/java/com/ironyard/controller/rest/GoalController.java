@@ -39,7 +39,7 @@ public class GoalController {
 
 
     /**
-     * Update goal
+     * Updates goal
      * @param aGoal
      * @return
      */

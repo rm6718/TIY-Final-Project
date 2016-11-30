@@ -55,15 +55,15 @@
     <div class="header clearfix">
         <nav>
             <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="/mvc/secure/goals/all">Home</a></li>
+                <li role="presentation"><a href="/mvc/secure/goals/all">Home</a></li>
                 <c:if test="${user_loggedin_perms.containsKey('ADMIN_ADD_USER')}">
                     <li role="presentation"><a href="/mvc/secure/admin/users">Users</a></li>
                 </c:if>
-                <li role="presentation"><a href="/mvc/secure/creategoal.jsp">Create New Goal</a></li>
+                <li role="presentation" class="active"><a href="/mvc/secure/creategoal.jsp">Create New Goal</a></li>
                 <li role="presentation"><a href="/mvc/open/logout">Logout</a></li>
             </ul>
         </nav>
-        <h3 class="text-muted">Bucket List</h3>
+        <h3 class="text-muted" style="font-style: italic">Wishful</h3>
     </div>
     <title>Create</title>
 

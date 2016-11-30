@@ -39,7 +39,7 @@ public class Application {
                 .globalOperationParameters(
                         newArrayList(new ParameterBuilder()
                                 .name("x-authorization-key")
-                                .description("API Authorization Key")
+                                .description("API Authorization Key   M6+4hTmtBqTBNRqGSEM7JtfDlSU/qh8Z")
                                 .modelRef(new ModelRef("string"))
                                 .parameterType("header")
                                 .required(true)
@@ -56,7 +56,15 @@ public class Application {
                 .apiInfo(apiInfoUser())
                 .select()
                 .paths(regex("/rest/user.*"))
-                .build();
+                .build()
+                .globalOperationParameters(
+                        newArrayList(new ParameterBuilder()
+                                .name("x-authorization-key")
+                                .description("API Authorization Key   M6+4hTmtBqTBNRqGSEM7JtfDlSU/qh8Z")
+                                .modelRef(new ModelRef("string"))
+                                .parameterType("header")
+                                .required(true)
+                                .build()));
     }
 
 
@@ -68,7 +76,15 @@ public class Application {
                 .apiInfo(apiInfoPermissions())
                 .select()
                 .paths(regex("/rest/permission.*"))
-                .build();
+                .build()
+                .globalOperationParameters(
+                        newArrayList(new ParameterBuilder()
+                                .name("x-authorization-key")
+                                .description("API Authorization Key   M6+4hTmtBqTBNRqGSEM7JtfDlSU/qh8Z")
+                                .modelRef(new ModelRef("string"))
+                                .parameterType("header")
+                                .required(true)
+                                .build()));
     }
 
 

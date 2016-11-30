@@ -26,6 +26,13 @@ public class MvcLoginController {
     @Autowired
     private GoalUserRepository goalUserRepository;
 
+    /**
+     * Logs in a user
+     * @param password
+     * @param username
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(@RequestParam(value = "password", required = false) String password,
                         @RequestParam(value = "username", required = false) String username,

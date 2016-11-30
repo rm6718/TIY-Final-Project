@@ -86,10 +86,7 @@
 <!--margin - left: 370px  -->
     <div style="display: flex; flex-direction: column; align-content: center; text-align: center;" >
 
-    <div class="row marketing">
-        <div class="col-lg-6">
             <h4 align="center">Here's Your Bucket List</h4>
-
 
             <table class="table">
                 <thead>
@@ -106,12 +103,8 @@
 
 
                 <c:forEach items="${notcompleted_goals}" var="aGoal">
-
                     <tr>
                         <td align="center"><input type="checkbox" id="myCheck" onclick="markComplete(${aGoal.id})"></td>
-                        
-
-                        
                         <td align="center"><c:out value="${aGoal.item}"/></td>
                         <td align="center"><c:out value="${aGoal.dateToBeCompleted}"/></td>
                         <td align="center"><c:out value="${aGoal.comments}"/></td>
@@ -126,8 +119,6 @@
             </table>
 
 
-            </div>
-        </div>
 
 
 
@@ -136,8 +127,6 @@
 
 
 
-        <div class="row marketing">
-            <div class="col-lg-6">
                 <h4 align="center">Your Completed Goals</h4>
 
                 <p/>
@@ -145,7 +134,7 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th align="center">Not Completed</th>
+                        <th align="center">Completed</th>
                         <th align="center">Goal</th>
                         <th align="center">Date To Be Completed By</th>
                         <th align="center">Comments</th>
@@ -174,14 +163,9 @@
                 </table>
 
 
-            </div>
-
-
-
 
     </div>
 
-    </div>
 
     <footer class="footer">
         <p>&copy; 2016 Company, Inc.</p>

@@ -28,7 +28,7 @@ public class MvcGoalUserController {
 
 
     @RequestMapping(value = "accomplished/add", method = RequestMethod.GET)
-    public String addAccomplished(@RequestParam("id") Long id, HttpServletRequest request){
+    public String addAccomplished(@RequestParam("id") Long id){
 
         String destination = "redirect:/mvc/secure/goals/all";
 
@@ -47,7 +47,7 @@ public class MvcGoalUserController {
 
 
     @RequestMapping(value = "accomplished/remove", method = RequestMethod.GET)
-    public String removeFromAccomplished(@RequestParam("id") Long id, HttpServletRequest request){
+    public String removeFromAccomplished(@RequestParam("id") Long id){
 
         String destination = "redirect:/mvc/secure/goals/all";
 

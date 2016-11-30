@@ -1,22 +1,14 @@
 package com.ironyard.controller.mvc;
 
 import com.ironyard.data.Goal;
-import com.ironyard.data.GoalUser;
-import com.ironyard.dto.Pager;
 import com.ironyard.repos.GoalRepository;
 import com.ironyard.repos.GoalUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Iterator;
 
 /**
  * Created by reevamerchant on 11/7/16.
@@ -46,29 +38,16 @@ public class MvcGoalController {
 
 
     @RequestMapping(value = "all", method = RequestMethod.GET)
-    public String allMovies(@RequestParam(value = "page", required = false) Integer page,
-                            Model model, HttpServletRequest request){
+    public String allMovies(Model model){
 
-//        if (page == null){
-//            page = 0;
-//        }
-
-//        Sort s = new Sort(Sort.Direction.DESC, "item");
-//        PageRequest pr = new PageRequest(page, 3, s);
         Iterable<Goal> aPageOfCompletedGoals = goalRepository.findByAccomplished(true);
 
         Iterable<Goal> aPageOfIncompleteGoals = goalRepository.findByAccomplished(false);
 
-       // Pager gp = new Pager(page, aPageOfCompletedGoals);
 
-
-
-        // put them in a model
         model.addAttribute("completed_goals", aPageOfCompletedGoals.iterator());
         model.addAttribute("notcompleted_goals", aPageOfIncompleteGoals.iterator());
-        //model.addAttribute("goal_pager", gp);
 
-        //sends people to home page
         return "/secure/goals";
     }
 
@@ -94,7 +73,7 @@ public class MvcGoalController {
 
 
     @RequestMapping(value = "list/delete", method = RequestMethod.GET)
-    public String delete(@RequestParam("id") Long id, Model model, HttpServletRequest req) {
+    public String delete(@RequestParam("id") Long id) {
         String destination = "redirect:/mvc/secure/goals/all";
 
         Goal foundGoal = goalRepository.findOne(id);
@@ -126,8 +105,7 @@ public class MvcGoalController {
     public String save(@RequestParam("id") Long id,
                        @RequestParam("item") String item,
                        @RequestParam("dateToBeCompleted") String dateToBeCompleted,
-                       @RequestParam("comments") String comments,
-                       Model model) {
+                       @RequestParam("comments") String comments) {
 
         String destination = "redirect:/mvc/secure/goals/all";
 
