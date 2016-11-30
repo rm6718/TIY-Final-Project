@@ -30,7 +30,9 @@ public class PermissionController {
      */
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public Permission save(@RequestBody Permission aPermission) {
+        log.debug("Begin save:" + aPermission);
         permissionRepository.save(aPermission);
+        log.debug("End save:" + aPermission);
         return permissionRepository.findOne(aPermission.getId());
     }
 
