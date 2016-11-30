@@ -39,7 +39,7 @@ public class Application {
                 .globalOperationParameters(
                         newArrayList(new ParameterBuilder()
                                 .name("x-authorization-key")
-                                .description("API Authorization Key   M6+4hTmtBqTBNRqGSEM7JtfDlSU/qh8Z")
+                                .description("API Authorization Key")
                                 .modelRef(new ModelRef("string"))
                                 .parameterType("header")
                                 .required(true)
@@ -60,7 +60,7 @@ public class Application {
                 .globalOperationParameters(
                         newArrayList(new ParameterBuilder()
                                 .name("x-authorization-key")
-                                .description("API Authorization Key   M6+4hTmtBqTBNRqGSEM7JtfDlSU/qh8Z")
+                                .description("API Authorization Key")
                                 .modelRef(new ModelRef("string"))
                                 .parameterType("header")
                                 .required(true)
@@ -80,7 +80,7 @@ public class Application {
                 .globalOperationParameters(
                         newArrayList(new ParameterBuilder()
                                 .name("x-authorization-key")
-                                .description("API Authorization Key   M6+4hTmtBqTBNRqGSEM7JtfDlSU/qh8Z")
+                                .description("API Authorization Key")
                                 .modelRef(new ModelRef("string"))
                                 .parameterType("header")
                                 .required(true)
@@ -94,7 +94,7 @@ public class Application {
         Contact name = new Contact("Reeva Merchant","rm.com", "reeva.merchant@gmail.com");
 
         return new ApiInfoBuilder()
-                .title("This is my API")
+                .title("This is the API for managing the user's goals.")
                 .description("Create your list of goals here!")
                 .termsOfServiceUrl("http://theironyard.com")
                 .contact(name)
