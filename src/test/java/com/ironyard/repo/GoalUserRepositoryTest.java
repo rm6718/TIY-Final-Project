@@ -49,7 +49,7 @@ public class GoalUserRepositoryTest {
 
 
     @Test
-    public void testDeleteAUser() throws Exception{
+    public void testDeleteAUserWithoutDeletingPermissions() throws Exception{
         // create a goal
         Goal savedGoal = goalRepo.save(new Goal("See the star wars movies", "tomorrow", "never seen before"));
 
@@ -73,6 +73,7 @@ public class GoalUserRepositoryTest {
 
         userRepo.delete(fetchedUser.getId());
 
+        // permission should still be found after deleting a user
         Assert.assertNotNull(permRepo.findOne(permId));
 
     }

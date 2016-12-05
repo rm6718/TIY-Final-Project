@@ -32,8 +32,9 @@ public class PermissionController {
     public Permission save(@RequestBody Permission aPermission) {
         log.debug("Begin save:" + aPermission);
         permissionRepository.save(aPermission);
+        Permission found = permissionRepository.findOne(aPermission.getId());
         log.debug("End save:" + aPermission);
-        return permissionRepository.findOne(aPermission.getId());
+        return found;
     }
 
 
@@ -44,8 +45,11 @@ public class PermissionController {
      */
     @RequestMapping(value = "update", method = RequestMethod.PUT)
     public Permission update(@RequestBody Permission aPermission) {
+        log.debug("Begin update:" + aPermission);
         permissionRepository.save(aPermission);
-        return permissionRepository.findOne(aPermission.getId());
+        Permission found = permissionRepository.findOne(aPermission.getId());
+        log.debug("End update:" + found);
+        return found;
     }
 
 
@@ -56,7 +60,10 @@ public class PermissionController {
      */
     @RequestMapping(value = "get/{id}", method = RequestMethod.GET)
     public Permission show(@PathVariable Long id) {
-        return permissionRepository.findOne(id);
+        log.debug("Begin show:" + id);
+        Permission found = permissionRepository.findOne(id);
+        log.debug("End show:" + found);
+        return found;
     }
 
 
@@ -74,6 +81,8 @@ public class PermissionController {
                                         @RequestParam(value = "sortby", required = false) String sortby,
                                         @RequestParam(value = "dir", required = false) Sort.Direction direction) {
 
+        log.debug(String.format("Begin listAll (page:%s, size:%s, sortby:%s, dir:%s):",page,size,sortby,direction));
+
         // DEFAULT Sort property
         if (sortby == null) {
             sortby = "item";
@@ -86,7 +95,10 @@ public class PermissionController {
 
         Sort s = new Sort(direction, sortby);
         PageRequest pr = new PageRequest(page, size, s);
-        return permissionRepository.findAll(pr);
+        Iterable<Permission> found = permissionRepository.findAll(pr);
+        log.debug(String.format("End listAll: %s", found));
+
+        return found;
     }
 
 
@@ -97,8 +109,10 @@ public class PermissionController {
      */
     @RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
     public Permission delete(@PathVariable Long id) {
+        log.debug(String.format("Begin delete: %s", id));
         Permission deleted = permissionRepository.findOne(id);
         permissionRepository.delete(id);
+        log.debug(String.format("End delete: %s", deleted));
         return deleted;
     }
 
@@ -110,6 +124,7 @@ public class PermissionController {
      */
     @ExceptionHandler(value = Throwable.class)
     public String nfeHandler(Throwable e) {
+        log.error("Error in PermissionController", e);
         return "You have done something wrong. Try again.";
     }
 

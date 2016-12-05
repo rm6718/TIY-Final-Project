@@ -42,7 +42,12 @@ public class MvcAdminController {
     }
 
 
-
+    /**
+     * Gets all the users and permissions from the database
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "users", method = RequestMethod.GET)
     public String list(Model model) {
         String destination = "/secure/admin_user";
@@ -51,12 +56,19 @@ public class MvcAdminController {
     }
 
 
-
+    /**
+     * Gives the ability to edit a user to the user admin
+     *
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "user/edit", method = RequestMethod.GET)
     public String edit(@RequestParam("id") Long id,
                        Model model) {
         String destination = "/secure/admin_user";
         GoalUser editUser = goalUserRepository.findOne(id);
+        log.debug("Begin editing:" + editUser);
 
         // add a hash of perms this user case (so we can mark them in the checkboxes)
         HashMap<String, String> permsForThisUser = new HashMap<>();
@@ -70,28 +82,51 @@ public class MvcAdminController {
         model.addAttribute("password2", editUser.getPassword());
         model.addAttribute("id", editUser.getId());
         addUserAndPermList(model);
+        log.debug("Finish editing:" + editUser);
 
         return destination;
     }
 
 
-
+    /**
+     * Allows for a user to be deleted from the list of users
+     *
+     * @param id
+     * @param model
+     * @param req
+     * @return
+     */
     @RequestMapping(value = "user/delete", method = RequestMethod.GET)
     public String delete(@RequestParam("id") Long id, Model model, HttpServletRequest req) {
         String destination = "/secure/admin_user";
 
         GoalUser user = (GoalUser)req.getSession().getAttribute("user");
+        log.debug("Begin deleting:" + user);
+
         if (user.getId() == id){
             model.addAttribute("error_message", "Can delete currently logged in user!");
         } else {
             goalUserRepository.delete(id);
         }
         addUserAndPermList(model);
+        log.debug("Finish deleting:" + user);
+
         return destination;
     }
 
 
-
+    /**
+     * Creates a new user if a user isn't already in the database
+     *
+     * @param id
+     * @param username
+     * @param displayname
+     * @param password
+     * @param password2
+     * @param perms
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "user/save", method = RequestMethod.POST)
     public String saveUser(@RequestParam("id") Long id,
                            @RequestParam("username") String username,
@@ -117,6 +152,8 @@ public class MvcAdminController {
             if (id == null) {
 
                 GoalUser newUser = new GoalUser();
+                log.debug("Begin creating new user:" + newUser);
+
                 newUser.setUsername(username);
                 newUser.setDisplayName(displayname);
                 newUser.setPassword(password);
@@ -129,6 +166,8 @@ public class MvcAdminController {
                     }
                 }
                 goalUserRepository.save(newUser);
+                log.debug("Finish creating new user:" + newUser);
+
             } else {
 
                 GoalUser editUser = goalUserRepository.findOne(id);

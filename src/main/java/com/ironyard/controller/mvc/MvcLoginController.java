@@ -59,6 +59,11 @@ public class MvcLoginController {
     }
 
 
+    /**
+     * Logs out a user
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "logout", method = RequestMethod.GET)
     public String logout(HttpServletRequest request) {
         String destination = "/open/login";
